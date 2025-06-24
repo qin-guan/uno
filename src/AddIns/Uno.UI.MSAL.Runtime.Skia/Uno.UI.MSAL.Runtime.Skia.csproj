@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>$(NetMobilePreviousAndCurrent)</TargetFrameworks>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<Import Project="../../targetframework-override.props" />
+
+	<ItemGroup>
+		<ProjectReference Include="..\Uno.UI.MSAL\Uno.UI.MSAL.Reference.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\Uno.UWP\Uno.Reference.csproj">
+			<TreatAsPackageReference>false</TreatAsPackageReference>
+			<PrivateAssets>all</PrivateAssets>
+		</ProjectReference>
+	</ItemGroup>
+</Project>

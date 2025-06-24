@@ -1,5 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
 using Microsoft.Identity.Client;
+using Uno.Foundation.Extensibility;
+using Uno.UI.MSAL.Extensibility;
 
 namespace Uno.UI.MSAL
 {
@@ -12,6 +14,7 @@ namespace Uno.UI.MSAL
 		public static T WithUnoHelpers<T>(this T builder)
 			where T : AbstractApplicationBuilder<T>
 		{
+			ApiExtensibility.CreateInstance<IMsalExtension>(typeof(AbstractApplicationBuilderExtensions), out var extension);
 #if __ANDROID__
 			(builder as PublicClientApplicationBuilder)?.WithParentActivityOrWindow(() => ContextHelper.Current as Android.App.Activity);
 #elif __APPLE_UIKIT__
