@@ -1,6 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
 using Microsoft.Identity.Client;
-using Uno.Foundation.Extensibility;
 using Uno.UI.MSAL.Extensibility;
 
 namespace Uno.UI.MSAL

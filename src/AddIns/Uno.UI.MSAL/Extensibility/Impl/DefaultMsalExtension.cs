@@ -5,8 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Identity.Client;
-using Uno.Foundation.Extensibility;
 using Uno.UI.MSAL.Extensibility;
+
+#if !WINDOWS
+using Uno.Foundation.Extensibility;
+#endif
 
 #if UNO_MSAL_RUNTIME_SKIA
 [assembly: ApiExtension(typeof(IMsalExtension), typeof(DefaultMsalExtension))]
@@ -25,7 +28,11 @@ public partial class DefaultMsalExtension() : IMsalExtension
 	public DefaultMsalExtension(object _) : this() { }
 
 	public static DefaultMsalExtension Instance =>
-		ApiExtensibility.CreateInstance<DefaultMsalExtension>(typeof(DefaultMsalExtension), out var instance) ? instance : new DefaultMsalExtension();
+#if WINDOWS
+		new DefaultMsalExtension();
+#else
+	ApiExtensibility.CreateInstance<DefaultMsalExtension>(typeof(DefaultMsalExtension), out var instance) ? instance : new DefaultMsalExtension();
+#endif
 
 	public T InitializeAbstractApplicationBuilder<T>(T builder) where T : AbstractApplicationBuilder<T>
 	{
