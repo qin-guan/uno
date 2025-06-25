@@ -11,7 +11,7 @@ namespace Uno.UI.MSAL.Extensibility;
 [EditorBrowsable(EditorBrowsableState.Never)]
 public interface IMsalExtension
 {
-	void InitializeAbstractApplicationBuilder<T>(T builder) where T : AbstractApplicationBuilder<T>;
+	T InitializeAbstractApplicationBuilder<T>(T builder) where T : AbstractApplicationBuilder<T>;
 
-	void InitializeAcquireTokenInteractiveParameterBuilder(AcquireTokenInteractiveParameterBuilder builder);
+	AcquireTokenInteractiveParameterBuilder InitializeAcquireTokenInteractiveParameterBuilder(AcquireTokenInteractiveParameterBuilder builder);
 }
