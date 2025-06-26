@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Identity.Client;
 using Uno.UI.MSAL.Extensibility;
+using Microsoft.Identity.Client.Extensibility;
 
 #if !WINDOWS
 using Uno.Foundation.Extensibility;
