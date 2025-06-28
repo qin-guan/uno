@@ -4,6 +4,7 @@
 		<TargetFrameworks>$(NetMobilePreviousAndCurrent);$(NetReferencePreviousAndCurrent)</TargetFrameworks>
 		<Nullable>enable</Nullable>
 		<DefineConstants>$(DefineConstants);UNO_MSAL_RUNTIME_SKIA</DefineConstants>
+		<IsPackable>true</IsPackable>
 	</PropertyGroup>
 
 	<Import Project="../../targetframework-override.props" />
