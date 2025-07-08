@@ -4,7 +4,9 @@
 		<TargetFrameworks>$(NetMobilePreviousAndCurrent);$(NetReferencePreviousAndCurrent)</TargetFrameworks>
 		<Nullable>enable</Nullable>
 		<DefineConstants>$(DefineConstants);UNO_MSAL_RUNTIME_SKIA</DefineConstants>
-		<IsPackable>true</IsPackable>
+		<GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>
+		<PackageId Condition="'$(UNO_UWP_BUILD)'=='false'">Uno.WinUI.MSAL.Runtime.Skia</PackageId>
+		<Description>This package provides Skia support for MSAL</Description>
 	</PropertyGroup>
 
 	<Import Project="../../targetframework-override.props" />
